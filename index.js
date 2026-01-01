@@ -1,12 +1,12 @@
 import "dotenv/config";
 import express from "express";
-import sendSMS from "./CallFeat/callDemo.js";
+import run from "./Controller/MessageController.js";
 const app = express();
+app.use(express.json());
+
 const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+});
 
-await sendSMS(
-  "+94774955689", // 👈 YOUR phone number here
-  "Naveesh"
-);
-
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+run();
