@@ -8,13 +8,12 @@ const client = twilio(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TO
  * @param {string} userName - User name
  * @param {string} location - Google Maps link or lat,lng
  */
-export default function sendSMS(phoneNumber, userName, location) {
+export default function sendSMS(phoneNumber, userName) {
   return client.messages
     .create({
       body: `🚨 USafe Emergency Alert
 
 Name: ${userName}
-Location: ${location}
 Time: ${new Date().toLocaleString()}
 
 Please respond immediately.`,
